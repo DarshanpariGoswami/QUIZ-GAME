@@ -1,66 +1,104 @@
-const quastions = [
+//Questions will be asked
+const Questions = [
   {
-    optioncontainer: "What is capital of India?",
-    OPT: [
-      {
-        a: "gandhinagar",
-        b: "Surat",
-        c: "mumbai",
-        d: "panjab",
-      },
+    id: 0,
+    q: "What is capital of India?",
+    a: [
+      { text: "gandhinagar", isCorrect: false },
+      { text: "Surat", isCorrect: false },
+      { text: "Surat", isCorrect: true },
+      { text: "mumbai", isCorrect: false },
     ],
-    optioncontainer: "What is the capital of Thailand?",
-    OPT: [
-      {
-        a: "Lampang",
-        b: "phuket",
-        c: "Ayutthaya",
-        d: "Bangkok",
-      },
+  },
+  {
+    id: 1,
+    q: "What is the capital of Thailand?",
+    a: [
+      { text: "Lampang", isSelected: false },
+      { text: "phuket", isCorrect: false },
+      { text: "Ayutthaya", isCorrect: false },
+      { text: "Bangkok", isCorrect: true },
     ],
-
-    optioncontainer: "What is the capital of Gujarat",
-    OPT: [
-      {
-        a: "surat",
-        b: "vadodara",
-        c: "gandhinagar",
-        d: "rajkot",
-      },
+  },
+  {
+    id: 2,
+    q: "What is the capital of Gujarat",
+    a: [
+      { text: "surat", isCorrect: false },
+      { text: "vadodara", isCorrect: false },
+      { text: "gandhinagar", isCorrect: true },
+      { text: "rajkot", isCorrect: false },
     ],
   },
 ];
+// Set start
+var start = true;
 
-var text = "What is capital of India?";
-const op2 = document.GetElementById("op2");
-const op3 = document.GetElementById("op3");
-const op4 = document.GetElementById("op4");
-const select = optioncontainer[0].OPT(0);
+// Iterate
+function iterate(id) {
+  // Getting the result display section
+  var result = document.getElementsByClassName("result");
+  result[0].innerText = "";
 
-const op1 = document.GetElementById("op1");
-op1.innerHTML = op1.innerText = Questions[id];
-op1.value = Questions[id].a[0].isCorrect;
+  // Getting the question
+  const question = document.getElementById("question");
 
-op1.addEventListener("click", () => {
-  op1.style.backgroundColor = "yellow";
-  op2.style.backgroundColor = "lightskyblue";
-  op3.style.backgroundColor = "lightskyblue";
-  op4.style.backgroundColor = "lightskyblue";
-  select = op1.value;
-});
+  // Setting the question text
+  question.innerText = Questions[id].q;
 
-const result = document.getElementsByName("result");
-result[0].innerText = "";
-const submit = document.GetElementById("submit");
+  // Getting the options
+  const op1 = document.getElementById("op1");
+  const op2 = document.getElementById("op2");
+  const op3 = document.getElementById("op3");
+  const op4 = document.getElementById("op4");
 
-submit[0].AddEventListener("click", () => {
-  if (select == "true") {
-    result[0].innerHTML = "true";
-    result[0].style.color = "red";
-  } else {
-    result.innerHTML = "false";
-    result[0].style.color = "red";
-  }
-});
+  // Providing option text
+  op1.innerText = Questions[id].a[0].text;
+  op2.innerText = Questions[id].a[1].text;
+  op3.innerText = Questions[id].a[2].text;
+  op4.innerText = Questions[id].a[3].text;
 
-//const op = document.GetElementById("submit");
+  // Providing the true or false value to the options
+  op1.value = Questions[id].a[0].isCorrect;
+  op2.value = Questions[id].a[1].isCorrect;
+  op3.value = Questions[id].a[2].isCorrect;
+  op4.value = Questions[id].a[3].isCorrect;
+
+  var selected = "";
+
+  // Show selection for op1
+  op1.addEventListener("click", () => {
+    op1.style.backgroundColor = "lightgoldenrodyellow";
+    op2.style.backgroundColor = "lightskyblue";
+    op3.style.backgroundColor = "lightskyblue";
+    op4.style.backgroundColor = "lightskyblue";
+    selected = op1.value;
+  });
+
+  // Show selection for op2
+  op2.addEventListener("click", () => {
+    op1.style.backgroundColor = "lightskyblue";
+    op2.style.backgroundColor = "lightgoldenrodyellow";
+    op3.style.backgroundColor = "lightskyblue";
+    op4.style.backgroundColor = "lightskyblue";
+    selected = op2.value;
+  });
+
+  // Show selection for op3
+  op3.addEventListener("click", () => {
+    op1.style.backgroundColor = "lightskyblue";
+    op2.style.backgroundColor = "lightskyblue";
+    op3.style.backgroundColor = "lightgoldenrodyellow";
+    op4.style.backgroundColor = "lightskyblue";
+    selected = op3.value;
+  });
+
+  // Show selection for op4
+  op4.addEventListener("click", () => {
+    op1.style.backgroundColor = "lightskyblue";
+    op2.style.backgroundColor = "lightskyblue";
+    op3.style.backgroundColor = "lightskyblue";
+    op4.style.backgroundColor = "lightgoldenrodyellow";
+    selected = op4.value;
+  });
+}
