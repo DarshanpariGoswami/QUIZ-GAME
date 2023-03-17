@@ -13,7 +13,7 @@ body {
     align-items: center;
 }
 
-#Question{
+.question-container {
     margin: 10px;
     padding: 5px;
     width: 80vw;
@@ -22,7 +22,7 @@ body {
     font-size: x-large;
     text-align: center;
 
-} 
+}
 
 .result {
     margin: 10px;
@@ -34,7 +34,7 @@ body {
 
 }
 
-.optioncontainer {
+.option-container {
     display: flex;
     justify-content: space-around;
     margin: 10px;
@@ -79,7 +79,7 @@ body {
 .submit {
 
     background-color: #50DBB4;
-    width: 10%;
+    width: 15%;
 }
 
 .next {
