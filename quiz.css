@@ -97,8 +97,17 @@ body {
         align-items: center;
         background-color: grey;
 }
-button
+#demo
 {
     width: 150px;
     height: 70px;
+    font-size: 40px;
+}
+#user_inpute-class
+{
+    background-color:grey;
+    opacity: 1.0;
+    width: 50%;
+    position:relative;
+    top:100px;
 }
