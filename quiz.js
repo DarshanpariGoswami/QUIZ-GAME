@@ -128,11 +128,13 @@ function iterate(id) {
 
   // submit method
   submit[0].addEventListener("click", () => {
+    const false_qa = Questions[id].a.length;
+
     if (selected == "true") {
       result[0].innerHTML = "True";
       result[0].style.color = "green";
     } else {
-      result[0].innerHTML = "False";
+      result[0].innerHTML = "false";
       result[0].style.color = "red";
     }
   });
@@ -154,4 +156,3 @@ next.addEventListener("click", () => {
     console.log(id);
   }
 });
-//document.getElementById("demo").innerHTML = "hello";

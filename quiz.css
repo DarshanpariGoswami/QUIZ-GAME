@@ -111,3 +111,7 @@ body {
     position:relative;
     top:100px;
 }
+video{
+    width: 30vw;
+    height: 100vw   ;
+}
